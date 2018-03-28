@@ -17,5 +17,6 @@ workflows:
   test:
     jobs:
       - tag-test:
-          tags:
+          filters:
+            tags:
               only: *
