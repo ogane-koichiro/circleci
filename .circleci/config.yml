@@ -29,8 +29,8 @@ workflows:
     jobs:
       - build-test
       - tag-test:
-          requires:
-            - build-test
+          #requires:
+          #  - build-test
           filters:
             tags:
               only: /.*/
