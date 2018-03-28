@@ -1,0 +1,21 @@
+version: 2
+jobs:
+  # test
+  tag-test:
+    working_directory: /app
+    docker:
+      - image: google/cloud-sdk:alpine
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: Setting up authority
+          command: |
+            echo tag-test
+workflows:
+  version: 2
+  test:
+    jobs:
+      - tag-test:
+          tags:
+              only: *
