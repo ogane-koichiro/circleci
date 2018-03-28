@@ -12,6 +12,7 @@ jobs:
           name: Setting up authority
           command: |
             echo tag-test
+            
 workflows:
   version: 2
   test:
