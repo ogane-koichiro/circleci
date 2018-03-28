@@ -20,4 +20,4 @@ workflows:
       - tag-test:
           filters:
             tags:
-              only: .*
+              only: /.*/
