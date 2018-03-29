@@ -31,10 +31,12 @@ workflows:
   version: 2
   test:
     jobs:
-      - build-test
+      - build-test:
+          type: approval
       - tag-test:
           #requires:
           #  - build-test
+          type: approval
           filters:
             branches:
               ignore: /.*/
