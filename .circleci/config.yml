@@ -26,6 +26,51 @@ jobs:
           name: tag-test
           command: |
             echo tag-test
+  test1 > 1:
+    working_directory: /app
+    docker:
+      - image: google/cloud-sdk:alpine
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: tag-test
+          command: |
+            echo tag-test
+  test1 > 2:
+    working_directory: /app
+    docker:
+      - image: google/cloud-sdk:alpine
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: tag-test
+          command: |
+            echo tag-test
+  test2 > 1:
+    working_directory: /app
+    docker:
+      - image: google/cloud-sdk:alpine
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: tag-test
+          command: |
+            echo tag-test
+  test2 > 2:
+    working_directory: /app
+    docker:
+      - image: google/cloud-sdk:alpine
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run:
+          name: tag-test
+          command: |
+            echo tag-test
+
 
 workflows:
   version: 2
@@ -37,6 +82,36 @@ workflows:
           #requires:
           #  - build-test
           type: approval
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+      - test1 > 1:
+          type: approval
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+      - test1 > 2:
+          type: approval
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+      - test2 > 1:
+          requires:
+            - test1 > 1
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /.*/
+      - test2 > 2:
+          requires:
+            - test1 > 2
           filters:
             branches:
               ignore: /.*/
