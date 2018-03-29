@@ -88,14 +88,12 @@ workflows:
             tags:
               only: /.*/
       - test1 > 1:
-          type: approval
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /.*/
       - test1 > 2:
-          type: approval
           filters:
             branches:
               ignore: /.*/
