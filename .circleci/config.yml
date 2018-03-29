@@ -9,9 +9,12 @@ jobs:
       - checkout
       - run:
           name: build-test
+          environment:
+            XXX: ${CIRCLE_SHA1::8}
           command: |
             IMAGE_TAG=${CIRCLE_SHA1::8}
             echo ${IMAGE_TAG}
+            echo ${XXX}
   tag-test:
     working_directory: /app
     docker:
