@@ -10,8 +10,7 @@ jobs:
       - run:
           name: build-test
           command: |
-            echo ${CIRCLE_SHA1} | cut -c 1-8 aaa
-            echo ${IMAGE_TAG}
+            echo ${CIRCLE_SHA1} | cut -c 1-8 | aaa
   tag-test:
     working_directory: /app
     docker:
