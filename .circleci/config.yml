@@ -10,6 +10,8 @@ jobs:
       - run:
           name: build-test
           command: |
+            echo $(${CIRCLE_SHA1} | cut -c 1-8) &&
+            echo ${CIRCLE_SHA1} | cut -c 1-8 &&
             export IMAGE_TAG=$(${CIRCLE_SHA1} | cut -c 1-8) &&
             echo ${IMAGE_TAG}
   tag-test:
