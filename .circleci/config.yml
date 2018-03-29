@@ -10,7 +10,7 @@ jobs:
       - run:
           name: build-test
           environment:
-            XXX: ${CIRCLE_SHA1::8}
+            XXX: "${CIRCLE_SHA1::8}"
           command: |
             IMAGE_TAG=${CIRCLE_SHA1::8}
             echo ${IMAGE_TAG}
