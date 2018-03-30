@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build - test:
+  build[test]:
     working_directory: /app
     docker:
       - image: google/cloud-sdk:alpine
@@ -76,7 +76,7 @@ workflows:
   version: 2
   test:
     jobs:
-      - build - test:
+      - build[test]:
       - tag-test:
           #requires:
           #  - build-test
